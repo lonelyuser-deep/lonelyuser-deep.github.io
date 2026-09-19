@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#17251a" />
+    <title>秋日秘境</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="cover-screen" aria-label="网站封面">
+        <div class="cover-shade"></div>
+        <div class="cover-content">
+          <p class="eyebrow">A WORLD TO EXPLORE</p>
+          <h1>秋日秘境</h1>
+          <button class="start-button" type="button" aria-controls="home" aria-label="进入主页">
+            <span>进入世界</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="home" id="home" aria-labelledby="home-title" hidden>
+        <div class="home-card">
+          <p class="eyebrow">WELCOME HOME</p>
+          <h2 id="home-title">你好，GitHub！</h2>
+          <p>这是本网站的主页。很高兴见到你！</p>
+        </div>
+      </section>
+    </main>
+    <script>
+      const cover = document.querySelector(".cover-screen");
+      const home = document.querySelector(".home");
+      const startButton = document.querySelector(".start-button");
+
+      startButton.addEventListener("click", () => {
+        cover.classList.add("cover-screen--leaving");
+        window.setTimeout(() => {
+          cover.hidden = true;
+          home.hidden = false;
+          home.classList.add("home--visible");
+          home.querySelector("h2").focus?.();
+        }, 450);
+      });
+    </script>
+  </body>
+</html>
